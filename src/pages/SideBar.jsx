@@ -1,20 +1,18 @@
-import React, { useState } from 'react'
-import arrow from '../assets/images/arrow.png'
+import React, { useState } from 'react';
+import arrow from '../assets/images/arrow.png';
 
 const sideBar = () => {
-  const [activeProductType, setActiveProductType] = useState("all-products")
+  const [activeProductType, setActiveProductType] = useState('all-products');
   const sidebarData = [
-    {id:1, name:"All Products", state:"all-products"},
-    {id:1, name:"Bracelets", state:"bracelets"},
-    {id:1, name:"Necklaces", state:"necklaces"},
-    {id:1, name:"Rings", state:"rings"},
-    {id:1, name:"Waist Chains", state:"waist-chains"},
-  ]
+    { id: 1, name: 'All Products', state: 'all-products' },
+    { id: 1, name: 'Bracelets', state: 'bracelets' },
+    { id: 1, name: 'Necklaces', state: 'necklaces' },
+    { id: 1, name: 'Rings', state: 'rings' },
+    { id: 1, name: 'Waist Chains', state: 'waist-chains' },
+  ];
 
   return (
-    <div
-      className="xl:w-[225px] font-[Nunito Sans]"
-    >
+    <div className="xl:w-[225px] font-[Nunito Sans]">
       <div className="flex justify-between items-center w-[191px] h-[19px] text-[14px]">
         <p className="text-[#4B5563]">Olaa Store</p>
         <img src={arrow} className="w-[12px] h-[12px]" />
@@ -27,7 +25,7 @@ const sideBar = () => {
               className={`${
                 activeProductType === item.state
                   ? 'bg-[#2D2D2D] text-[#FFFFFF]'
-                  : 'text-[#2D2D2D] bg-[#FFFFFF]'
+                  : 'text-[#575757]'
               } xl:w-full rounded-[6px] text-start px-[16px] py-[12px] shrink-0`}
               key={index}
               onClick={() => {
@@ -41,6 +39,6 @@ const sideBar = () => {
       </div>
     </div>
   );
-}
+};
 
-export default sideBar
+export default sideBar;
