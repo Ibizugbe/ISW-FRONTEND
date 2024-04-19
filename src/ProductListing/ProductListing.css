@@ -2,7 +2,8 @@ body {
   background-color: #ecedef;
 }
 .productListing {
-  max-width: 80%;
+  /* max-width: 80%; */
+  width: 100%;
   margin: 0 auto;
 }
 
