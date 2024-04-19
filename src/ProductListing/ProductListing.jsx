@@ -7,7 +7,21 @@ import Like from "../assets/images/Like.png";
 
 const ProductListing = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(Array(dummyProducts.length).fill(1));
+
+  const IncreaseCount = (index) => {
+    const newCount = [...count];
+    newCount[index]++;
+    setCount(newCount);
+  };
+
+  const DecreaseCount = (index) => {
+    const newCount = [...count];
+    if (newCount[index] > 1) {
+      newCount[index]--;
+      setCount(newCount);
+    }
+  };
   const productsPerPage = 12;
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -45,28 +59,23 @@ const ProductListing = () => {
                 </div>
               </div>
             </div>
-            
-              <h3>{product.name}</h3>
-              <div className="cardButton">
-                <button
-                  onClick={() => {
-                    setCount(count - 1);
-                  }}
-                  className="btnDecrease"
-                >
-                  -
-                </button>
-                <button className="btnNumber">{count}</button>
-                <button
-                  onClick={() => {
-                    setCount(count + 1);
-                  }}
-                  className="btnIncrease"
-                >
-                  +
-                </button>
-              </div>
-            
+
+            <h3>{product.name}</h3>
+            <div className="cardButton">
+              <button
+                onClick={() => DecreaseCount(index)}
+                className="btnDecrease"
+              >
+                -
+              </button>
+              <button className="btnNumber">{count[index]}</button>
+              <button
+                onClick={() => IncreaseCount(index)}
+                className="btnIncrease"
+              >
+                +
+              </button>
+            </div>
 
             <p>{product.price}</p>
             <div className="cart">
