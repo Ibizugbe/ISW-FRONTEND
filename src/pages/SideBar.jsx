@@ -18,7 +18,7 @@ const sideBar = () => {
         <img src={arrow} className="w-[12px] h-[12px]" />
         <p className="text-[background: #1F2937] font-[600]">All Products</p>
       </div>
-      <div className="flex md:flex-col mt-[30px] text-[16px] w-[225px] gap-x-[.5rem]">
+      <div className="flex lg:flex-col mt-[30px] text-[16px] w-[225px] gap-x-[.5rem]">
         {sidebarData.map((item, index) => {
           return (
             <button
