@@ -118,7 +118,7 @@ const Signup = () => {
           </p>
         </div>
         <div className="flex pt-8  ">
-          <button className="bg-gray-500 hover:bg-black hover:text-white text-sm  w-full py-4 px-14 rounded-t-lg ">
+          <button className="bg-gray-500 whitespace-pre hover:bg-black hover:text-white text-sm  w-full py-4 px-14 rounded-t-lg ">
             Store Owner
           </button>
           <button className=" bg-gray-500 hover:bg-black hover:text-white text-sm py4- px-14 w-full rounded-t-lg">

@@ -14,7 +14,7 @@ function App() {
      {/* <h1 className='font-bold p-2 text-green-400'>hello world</h1> */}
      <Navbar />
      <Signup/>
-
+      <Login />
     </>
   )
 }
