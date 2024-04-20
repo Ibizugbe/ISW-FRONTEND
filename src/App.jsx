@@ -5,6 +5,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Signup from './components/Signup'
 import Login from './components/Login'
+import Categoryform from './components/Categoryform'
 
 function App() {
  
@@ -15,6 +16,7 @@ function App() {
      <Navbar />
      <Signup/>
       <Login />
+      <Categoryform/>
     </>
   )
 }
