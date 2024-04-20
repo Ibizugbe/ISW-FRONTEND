@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Signup = () => {
-  const [formData, setformData] = useState({
+  const [formData, setFormData] = useState({
     email: "",
     phoneNumber: "",
     password: "",
@@ -15,7 +15,7 @@ const Signup = () => {
   const handleOnChange = (event) => {
     console.log(event);
     const { name, value } = event.target;
-    setformData({
+    setFormData({
       ...formData,
       [name]: value,
     });
@@ -27,70 +27,76 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
   });
-  const isValidEmail = () =>{
+  const isValidEmail = () => {
     // regular expression for basic email validation
     const emailRegex = /^\S+@\S+\.\S+$/;
     return emailRegex.test(email);
   };
 
-const isValidPhoneNumber = (phoneNumber) =>{
+  const isValidPhoneNumber = (phoneNumber) => {
     // Regular expression for basic phone number validation {13 digits}
     const phoneRegex = /^\d{13}$/;
-    return phoneRegex.test(phoneNumber)
-}
+    return phoneRegex.test(phoneNumber);
+  };
 
-const isValidPassword = (password) =>{
+  const isValidPassword = (password) => {
     // Regular expressions for password validation
     const symbolRegex = /[!@#$%^&*(),.?":{}|<>]/;
     const numberRegex = /[0-9]/;
     const upperCaseRegex = /[A-Z]/;
     const lowerCaseRegex = /[a-z]/;
-    return(
-        password.length >= 8 &&
-        symbolRegex.test(password) &&
-        numberRegex.test(password) &&
-        upperCaseRegex.test(password) &&
-        lowerCaseRegex.test(password)
+    return (
+      password.length >= 8 &&
+      symbolRegex.test(password) &&
+      numberRegex.test(password) &&
+      upperCaseRegex.test(password) &&
+      lowerCaseRegex.test(password)
     );
-}
-
+  };
 
   const validateForm = () => {
     let newErrors = {};
 
-    if(!formData.email){
-        newErrors.email = "email is required"
-    }else if(!isValidEmail(formData.email)){
-        newErrors.email = "Invalid email format";
+    if (!formData.email) {
+      newErrors.email = "email is required";
+    } else if (!isValidEmail(formData.email)) {
+      newErrors.email = "Invalid email format";
     }
-    if(!formData.phoneNumber){
-        newErrors.phoneNumber = "Phone number is required"
-    }else if(!isValidPhoneNumber(formData.phoneNumber)){
-        newErrors.phoneNumber ="Phone number must be 13 digits with +234"
+    if (!formData.phoneNumber) {
+      newErrors.phoneNumber = "Phone number is required";
+    } else if (!isValidPhoneNumber(formData.phoneNumber)) {
+      newErrors.phoneNumber = "Phone number must be 13 digits with +234";
     }
 
-    if(!formData.password){
-        newErrors.password = "Password is required";
-    }else if(!isValidPassword(formData.password)){
-        newErrors.password = "Password must be at least 8 characters long and contain at least on symbol, one number, one uppercase letter, and one lowercase letter"
+    if (!formData.password) {
+      newErrors.password = "Password is required";
+    } else if (!isValidPassword(formData.password)) {
+      newErrors.password = "Password must be at least 8 characters long ";
     }
-    if(!formData.confirmPassword){
-        newErrors.confirmPassword = "confirm password is required";
-    }else if(formData.confirmPassword !== formData.password){
-        newErrors.confirmPassword = "Passwords must match";
+    if (!formData.confirmPassword) {
+      newErrors.confirmPassword = "confirm password is required";
+    } else if (formData.confirmPassword !== formData.password) {
+      newErrors.confirmPassword = "Passwords must match";
     }
-    setError(newErrors)
+    setError(newErrors);
 
-    return object.keys(newErrors).length ===0;
+    return object.keys(newErrors).length === 0;
   };
 
-console.log(error)
+  //   const passwordInput = () => {
+  //     // const [Password, setPassword] = useState(" ");
+  //     const [showPassword, setShowPassword] = useState(false);
+
+  //     const togglePasswordVisibility = () => {
+  //       setShowPassword(!showPassword);
+  //     };
+  //   };
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
     const isValid = validateForm();
 
-    if(isValid) {
+    if (isValid) {
       console.log("form submitted", formData);
     } else {
       console.log("form validation failed");
@@ -99,7 +105,10 @@ console.log(error)
 
   return (
     <div className="flex justify-center m-10 p-6">
-      <form className="p-9 bg-white-200 border border-solid rounded-lg" onSubmit={handleOnSubmit}  >
+      <form
+        className="p-9 bg-white-200 border border-solid rounded-lg"
+        onSubmit={handleOnSubmit}
+      >
         <div>
           <h className="flex justify-center lg:font-mono pt-5 text-lg">
             Sign up
@@ -126,7 +135,9 @@ console.log(error)
             onChange={handleOnChange}
             className="bg-gray-200 w-full p-3 b-2 rounded"
           />
-          {error.email && <div className="error">{error.email}</div>}
+          {error.email && (
+            <div className="error text-red-500">{error.email}</div>
+          )}
 
           <label className="block text-xs px-2 pt-8">Phone Number</label>
           <input
@@ -137,30 +148,30 @@ console.log(error)
             onChange={handleOnChange}
             className="bg-gray-200 w-full p-3 rounded "
           />
-            {error.phoneNumber && <div className="error">{error.phoneNumber}</div>}
+          {error.phoneNumber && (
+            <div className="error text-red-500">{error.phoneNumber}</div>
+          )}
         </div>
         <div className="relative">
           <label className="block text-xs px-2 pt-8">Create a password</label>
           <input
-            type="Password"
+            type="password"
             value={password}
             name="password"
             onChange={handleOnChange}
             className="bg-gray-200 px-2 w-full b-2 p-3 rounded"
           />
-            
+
           <div className="relative top-12">
             {/* please note both icons are merged together incase of writing the code for functionality */}
             <FontAwesomeIcon
               icon={faEye}
-              className="absolute right-4 bottom-14 "
-            />
-            <FontAwesomeIcon
-              icon={faEyeSlash}
-              className="absolute right-4 bottom-14"
+              className="absolute right-4 bottom-14 cursor-pointer "
             />
           </div>
-          {error.password && <div className="error">{error.password}</div>}
+          {error.password && (
+            <div className="error text-red-500">{error.password}</div>
+          )}
           <label className="block text-xs px-2 pt-8">Confirm Password</label>
           <input
             type="Password"
@@ -169,21 +180,18 @@ console.log(error)
             onChange={handleOnChange}
             className="bg-gray-200 px-2 w-full p-3 rounded  "
           />
-           {error.confirmPassword && <div className="error">{error.confirmPassword}</div>}
+          {error.confirmPassword && (
+            <div className="error text-red-500">{error.confirmPassword}</div>
+          )}
           <div className="relative top-12">
             {/* please note both icons are merged together incase of writing the code for functionality */}
             <FontAwesomeIcon
               icon={faEye}
-              className="absolute right-4 bottom-14 "
+              className="absolute right-4 bottom-14 cursor-pointer "
             />
-            <FontAwesomeIcon
-              icon={faEyeSlash}
-              className="absolute right-4 bottom-14"
-            /> 
           </div>
-          <p className="text-xs">Must have at least 8 characters</p>
         </div>
-        
+
         <div className="pt-8">
           <button
             type="submit"
