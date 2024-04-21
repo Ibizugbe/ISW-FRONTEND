@@ -59,7 +59,7 @@ const ProductListing = () => {
                 </div>
               </div>
             </div>
-
+     <div className="grid-container">
             <h3>{product.name}</h3>
             <div className="cardButton">
               <button
@@ -83,8 +83,10 @@ const ProductListing = () => {
               <p>Add to cart</p>
             </div>
           </div>
+          </div>
         ))}
       </div>
+    
       <ul className="pagination">
         {Array.from(
           { length: Math.ceil(dummyProducts.length / productsPerPage) },
@@ -99,6 +101,7 @@ const ProductListing = () => {
           )
         )}
       </ul>
+      
     </div>
   );
 };

@@ -11,6 +11,10 @@ body {
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(220px, 2fr));
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: 150px 80px ;
+}
 .card h3 {
   font-family: "short stack";
   font-size: 16px;
@@ -24,8 +28,9 @@ body {
 }
 .card .cardButton {
   text-align: end;
+  margin-top: 3rem;
 
-  padding-right: 2rem;
+  
 }
 .btnDecrease {
   background-color: #d5d5d5;
@@ -147,6 +152,7 @@ body {
   }
   .cart {
     display: inline-flex;
+    margin-top: 0.8rem;
   }
   
   .cart p {
@@ -162,12 +168,15 @@ body {
     max-width: 340px;
   }
   .card .cardButton {
-    padding-right: 0;
+    margin-top: 2rem;
   }
   .icons .cartImg {
     display: none;
   }
   .dropDown {
     padding-right: 0;
+  }
+  .grid-container {
+    grid-template-columns: 150px 150px ;
   }
 }
