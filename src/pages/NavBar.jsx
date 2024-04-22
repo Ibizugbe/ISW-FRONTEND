@@ -1,24 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Login from '../auth/Login';
+import Register from '../auth/Registration';
 import logo from '../assets/images/Logo.png';
-import button from '../assets/images/Button.png'
+import button from '../assets/images/Button.png';
 import cart from '../assets/images/Cart2.png';
 import exit from '../assets/images/exit.png';
-import product1 from "../assets/images/product1.png"
-import product2 from "../assets/images/product2.png"
-import product3 from "../assets/images/product3.png"
-import product4 from '../assets/images/product4.png';
+import product1 from "../assets/images/product1.png";
+import product2 from "../assets/images/product2.png";
+import product3 from "../assets/images/product3.png";
 import notIncluded from '../assets/images/not_included.png';
 import creditCard from '../assets/images/CreditCard.png';
 import lock from '../assets/images/lock.png';
+import { Link } from 'react-router-dom';
 import flutterwave from '../assets/images/Flutterwave.png';
 
-
-
-
-const NavBar = ({cartState, setCartState}) => {
-
-  const [profile, setProfile] = useState(false)
- 
+const NavBar = ({ cartState, setCartState }) => {
+  const [profile, setProfile] = useState(false);
 
   return (
     <div className="flex relative">
@@ -26,7 +23,7 @@ const NavBar = ({cartState, setCartState}) => {
         <div className="flex justify-between py-6 w-[90%] mx-auto">
           <p className=" hidden xl:block"></p>
           <button>
-            <img src={logo} />
+            <img src={logo} alt="Logo" />
           </button>
           <div className="flex relative">
             <button
@@ -34,7 +31,7 @@ const NavBar = ({cartState, setCartState}) => {
                 setProfile(!profile);
               }}
             >
-              <img src={button} />
+              <img src={button} alt="Button" />
             </button>
 
             <button
@@ -42,7 +39,7 @@ const NavBar = ({cartState, setCartState}) => {
                 setCartState(!cartState);
               }}
             >
-              <img src={cart} />
+              <img src={cart} alt="Cart" />
             </button>
             <p className="h-[24px] w-[24px] bg-[#2D2D2D] text-white rounded-full text-[12px] flex justify-center items-center absolute right-[-4px] top-[-12px]">
               0
@@ -57,8 +54,12 @@ const NavBar = ({cartState, setCartState}) => {
             : 'h-0 right-[-100%] overflow-hidden'
         } text-[#575757] rounded  font-[Source Sans Pro] bg-white`}
       >
-        <p>Login</p>
-        <p className="mt-2">Sign Up</p>
+        <p>
+          <Link to="/login">Login</Link>
+        </p>
+        <p className="mt-2">
+          <Link to="/register">Sign Up</Link>
+        </p>
       </div>
       <div
         className={`${
@@ -122,7 +123,7 @@ const NavBar = ({cartState, setCartState}) => {
               <p className="rounded-full px-[8px] py-[4px] border-2">- 4 +</p>
             </div>
           </div>
-          <div className="bg-[#EBEBEB] mt-10 py-[16px] rounded bg-[#2D2D2D] ">
+          <div className="bg-[#EBEBEB] mt-10 py-[16px] rounded">
             <div className="flex justify-between w-11/12 mx-auto text-[14px]">
               <p className="text-[#818181]">Shipping</p>
               <div className="flex justify-between items-center gap-x-[4px]">
@@ -150,4 +151,4 @@ const NavBar = ({cartState, setCartState}) => {
   );
 }
 
-export default NavBar
+export default NavBar;

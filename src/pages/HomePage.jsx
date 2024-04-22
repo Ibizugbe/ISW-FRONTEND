@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import ProductListing from "../ProductListing/ProductListing"
+import React, {useState} from 'react';
+import ProductListing from "../ProductListing/ProductListing";
 import SideBar from './SideBar';
 import NavBar from './NavBar';
 import Cart from './Cart';
