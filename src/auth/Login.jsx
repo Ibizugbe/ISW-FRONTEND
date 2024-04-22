@@ -15,8 +15,8 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-white">
-      <div className="w-10/12 mx-auto pt-10">
+    <div className="bg-white min-h-[100vh]">
+      <div className="w-10/12 sm:w-9/12 md:w-7/12 lg:w-6/12 mx-auto pt-10">
         <h2 className="text-[32px] text-center font-[Short Stack]">Log in</h2>
         {error && <p>{error}</p>}
         <label className="flex flex-col mt-10">
@@ -44,13 +44,13 @@ const Login = () => {
           />
         </label>
         <button
-          className="bg-[#2D2D2D] py-[8px] w-full mt-10 text-[#F3F3F3] text-[18px] font-[Nunito Sans]"
+          className="rounded bg-[#2D2D2D] py-[8px] w-full mt-10 text-[#F3F3F3] text-[18px] font-[Nunito Sans]"
           onClick={handleLogin}
           disabled={loading}
         >
           {loading ? 'Logging in...' : 'Login'}
         </button>
-        <div className="mt-10 pb-10 flex text-[18px] gap-x-[16px]">
+        <div className="mt-10 pb-10 flex text-[18px] gap-x-[16px] justify-center">
           <p className="text-[#575757]">Don't have an account? </p>
           <button className="text-[#2D2D2D] border-b-2  border-[#2D2D2D]">
             <a href="/register">Sign Up</a>
