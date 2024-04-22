@@ -13,7 +13,8 @@ export const login = createAsyncThunk(
   'auth/login',
   async ({ email, password }, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://localhost:4200//api/users/auth', { email, password });
+      const response = await axios.post('http://localhost:4200/api/users/auth/', { email, password });
+      console.log('Login response:', response); 
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -22,17 +23,17 @@ export const login = createAsyncThunk(
 );
 
 // asynchronous thunk for user registration
-export const register = createAsyncThunk(
-  'auth/register',
-  async ({ name, email, password }, { rejectWithValue }) => {
-    try {
-      const response = await axios.post('http://localhost:4200//api/users', { name, email, password });
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.response.data.message);
+  export const register = createAsyncThunk(
+    'auth/register',
+    async ({ name, email, password }, { rejectWithValue }) => {
+      try {
+        const response = await axios.post('http://localhost:4200/api/users/', { name, email, password });
+        return response.data;
+      } catch (error) {
+        return rejectWithValue(error.response.data.message);
+      }
     }
-  }
-);
+  );
 
 // slice
 const authSlice = createSlice({
