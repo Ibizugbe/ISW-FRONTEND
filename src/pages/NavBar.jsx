@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import Login from '../auth/Login';
-import Register from '../auth/Registration';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { logout, selectUser } from '../redux/slices/authSlice';
 import logo from '../assets/images/Logo.png';
 import button from '../assets/images/Button.png';
 import cart from '../assets/images/Cart2.png';
@@ -11,11 +13,20 @@ import product3 from "../assets/images/product3.png";
 import notIncluded from '../assets/images/not_included.png';
 import creditCard from '../assets/images/CreditCard.png';
 import lock from '../assets/images/lock.png';
-import { Link } from 'react-router-dom';
 import flutterwave from '../assets/images/Flutterwave.png';
+
+
 
 const NavBar = ({ cartState, setCartState }) => {
   const [profile, setProfile] = useState(false);
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login")
+  };
 
   return (
     <div className="flex relative">
@@ -26,24 +37,33 @@ const NavBar = ({ cartState, setCartState }) => {
             <img src={logo} alt="Logo" />
           </button>
           <div className="flex relative">
-            <button
-              onClick={() => {
-                setProfile(!profile);
-              }}
-            >
-              <img src={button} alt="Button" />
-            </button>
 
-            <button
-              onClick={() => {
-                setCartState(!cartState);
-              }}
-            >
-              <img src={cart} alt="Cart" />
-            </button>
-            <p className="h-[24px] w-[24px] bg-[#2D2D2D] text-white rounded-full text-[12px] flex justify-center items-center absolute right-[-4px] top-[-12px]">
-              0
-            </p>
+            {user ? (
+              <button onClick={handleLogout}>
+                Logout
+              </button>
+            ) : (
+              <>
+                <button
+                  onClick={() => {
+                    setProfile(!profile);
+                  }}
+                >
+                  <img src={button} alt="Button" />
+                </button>
+                <button
+                  onClick={() => {
+                    setCartState(!cartState);
+                  }}
+                >
+                  <img src={cart} alt="Cart" />
+                </button>
+                <p className="h-[24px] w-[24px] bg-[#2D2D2D] text-white rounded-full text-[12px] flex justify-center items-center absolute right-[-4px] top-[-12px]">
+                  0
+                </p>
+              </>
+            )}
+
           </div>
         </div>
       </div>
