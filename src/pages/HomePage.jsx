@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
-import ProductListing from "../ProductListing/ProductListing"
+import React, {useState} from 'react';
+import ProductListing from "../ProductListing/ProductListing";
 import SideBar from './SideBar';
-import NavBar from './NavBar';
-import Cart from './Cart';
+import NavBar from '../components/NavBar';
+import Cart from '../components/Cart';
 
 
 const HomePage = () => {

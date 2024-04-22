@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, selectLoading, selectError } from './slices/authSlice';
+import { login, selectLoading, selectError } from '../redux/slices/authSlice';
 
 const Login = () => {
   const dispatch = useDispatch();

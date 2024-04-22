@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { register, selectLoading, selectError } from './slices/authSlice';
+import { register, selectLoading, selectError } from '../redux/slices/authSlice';
 
 const Register = () => {
   const dispatch = useDispatch();
