@@ -3,6 +3,7 @@ import ProductListing from "../ProductListing/ProductListing";
 import SideBar from './SideBar';
 import NavBar from './NavBar';
 import Cart from './Cart';
+import ProductDescription from './ProductDescription';
 
 
 const HomePage = () => {
@@ -23,6 +24,9 @@ const HomePage = () => {
           <ProductListing />
         </div>
       </div>
+
+      {/* <ProductDescription></ProductDescription> */}
+
     </main>
   );
 }
