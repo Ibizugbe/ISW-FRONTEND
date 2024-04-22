@@ -120,7 +120,7 @@ const NavBar = ({cartState, setCartState}) => {
               <p className="rounded-full px-[8px] py-[4px] border-2">- 4 +</p>
             </div>
           </div>
-          <div className="bg-[#EBEBEB] mt-10 py-[16px] rounded bg-[#2D2D2D] ">
+          <div className="bg-[#EBEBEB] mt-10 py-[16px] rounded">
             <div className="flex justify-between w-11/12 mx-auto text-[14px]">
               <p className="text-[#818181]">Shipping</p>
               <div className="flex justify-between items-center gap-x-[4px]">
