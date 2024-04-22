@@ -17,7 +17,7 @@ const NavBar = ({ cartState, setCartState }) => {
   const [profile, setProfile] = useState(false);
 
   return (
-    <div className="flex">
+    <div className="flex relative">
       <div className="z-50 bg-[#F3F3F3] w-full fixed top-0">
         <div className="flex justify-between py-6 w-[90%] mx-auto">
           <p className=" hidden xl:block"></p>
@@ -46,12 +46,24 @@ const NavBar = ({ cartState, setCartState }) => {
           </div>
         </div>
       </div>
-      <div className={`${profile ? 'absolute right-0 w-full bg-black' : 'h-0 right-[-100%]'} overflow-hidden transition-all text-[#575757] rounded bg-black`}>
-        <Login />
-        <Register />
+      <div
+        className={`${
+          profile
+            ? 'w-[234px] fixed right-0 lg:right-[30px] top-[85px] z-50 py-4 px-2 transition-all'
+            : 'h-0 right-[-100%] overflow-hidden'
+        } text-[#575757] rounded  font-[Source Sans Pro] bg-white`}
+      >
+        <p>Login</p>
+        <p className="mt-2">Sign Up</p>
       </div>
-      <div className={`${cartState ? 'w-full min-h-[100vh] absolute right-0 mt-24' : 'h-0 right-[-100%]'} overflow-hidden transition-all bg-[#F3F3F3]`}>
-        <div className="w-10/12 mx-auto mt-2">
+      <div
+        className={`${
+          cartState
+            ? 'w-full md:w-6/12 lg:w-5/12 md:z-40 md:fixed right-0 mt-24 transition-all'
+            : 'h-0 right-[-100%] overflow-hidden'
+        }  bg-[#F3F3F3]`}
+      >
+        <div className="w-10/12 mx-auto pt-4 bg-[#F3F3F3]">
           <div>
             <div className="flex justify-between items-center">
               <p>Cart (4)</p>
@@ -63,7 +75,7 @@ const NavBar = ({ cartState, setCartState }) => {
                 alt=""
               />
             </div>
-            <div className="flex justify-between items-center mt-8">
+            <div className="flex justify-between items-center mt-8 ">
               <div className="flex items-center gap-x-[16px]">
                 <img className="w-[88px] h-[80px]" src={product1} alt="close" />
                 <div>
