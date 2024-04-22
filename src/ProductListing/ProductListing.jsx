@@ -1,6 +1,7 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts, selectAllProducts, selectProductStatus } from "../redux/slices/productSlice";
 import "./ProductListing.css";
-import dummyProducts from "../Api";
 import cart from "../assets/images/cart.png";
 import cartImg from "../assets/images/cartImg.png";
 import Like from "../assets/images/Like.png";
@@ -9,10 +10,30 @@ const ProductListing = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [count, setCount] = useState(1);
   const productsPerPage = 12;
+  const dispatch = useDispatch();
+  const products = useSelector(selectAllProducts);
+  const status = useSelector(selectProductStatus);
 
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchProducts());
+    }
+  }, [status, dispatch]);
+
+  //  Loading state while product is being fetched
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  // error state if fetching fails
+  if (status === 'failed') {
+    return <div>Error: Unable to fetch products</div>;
+  }
+
+  // Pagination calculation
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = dummyProducts.slice(
+  const currentProducts = products.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
@@ -46,28 +67,27 @@ const ProductListing = () => {
               </div>
             </div>
             
-              <h3>{product.name}</h3>
-              <div className="cardButton">
-                <button
-                  onClick={() => {
-                    setCount(count - 1);
-                  }}
-                  className="btnDecrease"
-                >
-                  -
-                </button>
-                <button className="btnNumber">{count}</button>
-                <button
-                  onClick={() => {
-                    setCount(count + 1);
-                  }}
-                  className="btnIncrease"
-                >
-                  +
-                </button>
-              </div>
-            
-
+            <h3>{product.name}</h3>
+            <div className="cardButton">
+              <button
+                onClick={() => {
+                  setCount(count - 1);
+                }}
+                className="btnDecrease"
+              >
+                -
+              </button>
+              <button className="btnNumber">{count}</button>
+              <button
+                onClick={() => {
+                  setCount(count + 1);
+                }}
+                className="btnIncrease"
+              >
+                +
+              </button>
+            </div>
+          
             <p>{product.price}</p>
             <div className="cart">
               <img src={cart} alt="cart" />
@@ -78,7 +98,7 @@ const ProductListing = () => {
       </div>
       <ul className="pagination">
         {Array.from(
-          { length: Math.ceil(dummyProducts.length / productsPerPage) },
+          { length: Math.ceil(products.length / productsPerPage) },
           (_, i) => (
             <li
               key={i}
