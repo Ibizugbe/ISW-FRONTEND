@@ -11,6 +11,7 @@ import product3 from "../assets/images/product3.png";
 import notIncluded from '../assets/images/not_included.png';
 import creditCard from '../assets/images/CreditCard.png';
 import lock from '../assets/images/lock.png';
+import { Link } from 'react-router-dom';
 import flutterwave from '../assets/images/Flutterwave.png';
 
 const NavBar = ({ cartState, setCartState }) => {
@@ -53,8 +54,12 @@ const NavBar = ({ cartState, setCartState }) => {
             : 'h-0 right-[-100%] overflow-hidden'
         } text-[#575757] rounded  font-[Source Sans Pro] bg-white`}
       >
-        <p>Login</p>
-        <p className="mt-2">Sign Up</p>
+        <p>
+          <Link to="/login">Login</Link>
+        </p>
+        <p className="mt-2">
+          <Link to="/register">Sign Up</Link>
+        </p>
       </div>
       <div
         className={`${
