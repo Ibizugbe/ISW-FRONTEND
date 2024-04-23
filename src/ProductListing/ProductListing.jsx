@@ -2,33 +2,25 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, selectAllProducts, selectProductStatus } from "../redux/slices/productSlice";
 import "./ProductListing.css";
-import cart from "../assets/images/cart.png";
-import cartImg from "../assets/images/cartImg.png";
-import Like from "../assets/images/Like.png";
+import Product from "../components/Product";
 
 const ProductListing = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [count, setCount] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1); 
   const productsPerPage = 12;
   const dispatch = useDispatch();
   const products = useSelector(selectAllProducts);
   const status = useSelector(selectProductStatus);
 
+  // Fetch products when component mounts
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchProducts());
     }
   }, [status, dispatch]);
 
-  //  Loading state while product is being fetched
-  if (status === 'loading') {
-    return <div>Loading...</div>;
-  }
-
-  // error state if fetching fails
-  if (status === 'failed') {
-    return <div>Error: Unable to fetch products</div>;
-  }
+  useEffect(() => {
+    setCurrentPage(1);
+  }, []);
 
   // Pagination calculation
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -41,6 +33,16 @@ const ProductListing = () => {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  // Loading state while products are being fetched
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  // Error state if fetching fails
+  if (status === 'failed') {
+    return <div>Error: Unable to fetch products</div>;
+  }
 
   return (
     <div className="productListing">
@@ -55,46 +57,9 @@ const ProductListing = () => {
       </div>
 
       <div className="card-container">
-        {currentProducts.map((product, index) => (
-          <div className="card" key={index}>
-            <div className="imageContainer">
-              <img src={product.image} alt={product.name} />
-              <div className="overlay">
-                <div className="icons">
-                  <img src={Like} alt="Like" />
-                  <img src={cartImg} alt="Cart" className="cartImg" />
-                </div>
-              </div>
-            </div>
-            
-            <h3>{product.name}</h3>
-            <div className="cardButton">
-              <button
-                onClick={() => {
-                  setCount(count - 1);
-                }}
-                className="btnDecrease"
-              >
-                -
-              </button>
-              <button className="btnNumber">{count}</button>
-              <button
-                onClick={() => {
-                  setCount(count + 1);
-                }}
-                className="btnIncrease"
-              >
-                +
-              </button>
-            </div>
-          
-            <p>{product.price}</p>
-            <div className="cart">
-              <img src={cart} alt="cart" />
-              <p>Add to cart</p>
-            </div>
-          </div>
-        ))}
+        {currentProducts.map(product => {
+          return <Product key={product._id} product={product} />;
+        })}
       </div>
       <ul className="pagination">
         {Array.from(
