@@ -131,7 +131,7 @@ const Registration = () => {
         </div>
       </div>
       <button
-        className="loginButton"
+        className="signUpButton"
         onClick={handleRegister}
         disabled={isRegistering}
       >
