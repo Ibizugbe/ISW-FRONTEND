@@ -19,8 +19,10 @@ const Registration = () => {
   );
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [selectedUser, setSelectedUser] = useState("shopper");
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleRegister = async () => {
     dispatch(registerRequest());
@@ -43,6 +45,10 @@ const Registration = () => {
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
+  const handleToggleConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
 
   const handleUserSelection = (user) => {
     setSelectedUser(user);
@@ -102,7 +108,7 @@ const Registration = () => {
             <div className="passwordInput2">
               <input
                 type={showPassword ? "text" : "password"}
-                placeholder="|"
+                
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -122,15 +128,14 @@ const Registration = () => {
             <br />
             <div className="passwordInput2">
               <input
-                type={showPassword ? "text" : "password"}
-                placeholder="|"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                type={showConfirmPassword ? "text" : "confirmPassword"}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
               <img
-                src={showPassword ? closedEye : eye}
+                src={showConfirmPassword ? closedEye : eye}
                 alt="toggle password visibility"
-                onClick={handleTogglePassword}
+                onClick={handleToggleConfirmPassword}
               />
             </div>
           </div>
