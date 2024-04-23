@@ -53,12 +53,18 @@ const Registration = () => {
         <h2 className="Sign">Sign Up</h2>
         <p>Enter your details to create your account</p>
         <div className="navButton">
-          <button className={selectedUser === "storeOwner"? "active": ""}
-          onClick={() => handleUserSelection("storeOwner")}
-          >Store owner</button>
-          <button className={selectedUser === "shopper" ? "active" : ""}
-          onClick={()=> handleUserSelection("shopper")}
-          >Shopper</button>
+          <button
+            className={selectedUser === "storeOwner" ? "active" : ""}
+            onClick={() => handleUserSelection("storeOwner")}
+          >
+            Store owner
+          </button>
+          <button
+            className={selectedUser === "shopper" ? "active" : ""}
+            onClick={() => handleUserSelection("shopper")}
+          >
+            Shopper
+          </button>
         </div>
       </div>
       <div className="signupForm">
@@ -79,14 +85,14 @@ const Registration = () => {
           Phone Number
         </label>
         <br />
-        
-          <input
-            type="number"
-            placeholder="+234 812-345-6789"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        
+
+        <input
+          type="number"
+          placeholder="+234 812-345-6789"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+
         <div className="passwordWrapper">
           <div className="Password">
             <label htmlFor="number" className="Label2">
