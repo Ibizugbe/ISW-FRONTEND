@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, selectLoading, selectError } from '../redux/slices/authSlice';
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
@@ -11,7 +14,17 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    dispatch(login({ email, password }));
+    dispatch(login({ email, password }))
+      .then((response) => {
+        console.log("Login response: ", response);
+        const user = response.data;
+        localStorage.setItem("user", JSON.stringify(user)); 
+        // Redirect to the home page
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Login failed: ", error); 
+      });
   };
 
   return (
