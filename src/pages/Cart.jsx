@@ -6,7 +6,7 @@ const Cart = () => {
   return (
     <div className="">
       <div className="flex justify-between items-center">
-        <p className="text-[ #575757]  font-[Short Stack] text-[23px]">Cart (4)</p>
+        <p className="text-[ #575757] font-[Short Stack] text-[23px]">Cart (4)</p>
         <img src={exit} alt="close button" />
       </div>
       <div className='flex justify-between items-center'>
