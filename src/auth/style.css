@@ -85,7 +85,7 @@ h2 {
 .registration {
   width: 616px;
   height: auto;
-  padding: 32px 32px;
+  padding-left:32px;
   
   border-radius: 8px;
   opacity: 0px;
@@ -124,38 +124,39 @@ h2 {
   margin-bottom: 10px;
   width: 100%;
   height: auto;
-  padding: 8px 0px 0px 0px;
+  padding: 8px;
   gap: 8px;
   border-radius: 8px 8px 0px 0px;
   opacity: 0px;
 }
-.storeOwner {
-  align-items: center;
-  width: 276px;
-  height: 64px;
 
-  gap: 8px;
-  border-radius: 8px 8px 0px 0px;
-  opacity: 0px;
-  background-color: #2b6e77;
-  border: none;
-}
-.shopper {
+.navButton button {
   width: 276px;
-  align-items: end;
+  
   height: 64px;
-  padding: 8px 0px 0px 0px;
+  padding: 8px;
   gap: 8px;
   border-radius: 8px 8px 0px 0px;
   opacity: 0px;
   background-color: #f1f1f1;
   border: none;
 }
+.navButton button.active {
+  background-color: #2b6e77; 
+  color: white; 
+  align-items: center;
+  width: 276px;
+  height: 64px;
+  padding: 8px;
+  gap: 8px;
+  border-radius: 8px 8px 0px 0px;
+  opacity: 0px;
+}
 .signupForm input[type="email"],
 .signupForm input[type="number"] {
   width: 552px;
   height: 54px;
-  padding: 16px 0px 0px 0px;
+  padding: 16px;
   gap: 10px;
   border-radius: 4px;
   opacity: 0px;

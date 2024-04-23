@@ -20,6 +20,7 @@ const Registration = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [selectedUser, setSelectedUser] = useState("shopper");
 
   const handleRegister = async () => {
     dispatch(registerRequest());
@@ -42,14 +43,22 @@ const Registration = () => {
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
+
+  const handleUserSelection = (user) => {
+    setSelectedUser(user);
+  };
   return (
     <div className="registration">
       <div className="headerWrap">
         <h2 className="Sign">Sign Up</h2>
         <p>Enter your details to create your account</p>
         <div className="navButton">
-          <button className="storeOwner">Store owner</button>
-          <button className="shopper">Shopper</button>
+          <button className={selectedUser === "storeOwner"? "active": ""}
+          onClick={() => handleUserSelection("storeOwner")}
+          >Store owner</button>
+          <button className={selectedUser === "shopper" ? "active" : ""}
+          onClick={()=> handleUserSelection("shopper")}
+          >Shopper</button>
         </div>
       </div>
       <div className="signupForm">
