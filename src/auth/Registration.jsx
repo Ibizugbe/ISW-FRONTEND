@@ -108,8 +108,9 @@ const Registration = () => {
             <div className="passwordInput2">
               <input
                 type={showPassword ? "text" : "password"}
-                
+                className="passwrd"
                 value={password}
+                
                 onChange={(e) => setPassword(e.target.value)}
               />
               <img
@@ -128,7 +129,8 @@ const Registration = () => {
             <br />
             <div className="passwordInput2">
               <input
-                type={showConfirmPassword ? "text" : "confirmPassword"}
+                type={showConfirmPassword ? "text" : "password"}
+                className="passwrd"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />

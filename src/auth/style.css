@@ -1,7 +1,7 @@
 .login {
   width: 616px;
   height: auto;
-
+  background-color: #F3F3F3;  ;
   padding: 64px 32px 64px 32px;
   gap: 8px;
   border-radius: 8px;
@@ -34,7 +34,7 @@ h2 {
 .loginForm input[type="text"],
 .loginForm input[type="password"] {
   width: 552px;
-  height: 54px;
+  height: auto;
   padding: 16px;
   gap: 10px;
   box-sizing: border-box;
@@ -45,7 +45,7 @@ h2 {
 }
 .loginButton {
   width: 552px;
-  height: 48px;
+  height: 40px;
   padding: 16px;
   background-color: #2d2d2d;
   padding: 8px;
@@ -254,6 +254,22 @@ h2 {
   border: none;
   color: #f3f3f3;
 }
+.passwrd{
+  width: 265px;
+  height: 40px;
+
+  line-height: 25px;
+  padding: 0px;
+  gap: 10px;
+  border-radius: 4px;
+  border: none;
+  opacity: 0px;
+  background-color: #eaeaea;
+  margin-top: 10px;
+  color: #666666;
+}
+
+
 
 
 
@@ -261,7 +277,8 @@ h2 {
   .passwordWrapper{
     flex-direction: column;
   }
-  .Password input[type="password"]{
+  .Password input[type="password"],
+  .Password input[type="confirmPassword"]{
     width: 94%;
     height: 54px;
   }
