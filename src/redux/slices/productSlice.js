@@ -1,18 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-//  initial state
+//  my initial state
 const initialState = {
   products: [],
   status: 'idle',
   error: null,
 };
 
-// asynchronous thunk for fetching products
+// async product fetching
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async () => {
-    const response = await axios.get('http://localhost/3000/api/products');
+    const response = await axios.get('http://localhost:3000/api/product');
+    return response.data;
   }
 );
 
@@ -39,7 +40,6 @@ const productSlice = createSlice({
 
 export default productSlice.reducer;
 
-// Export action creators
 export const selectAllProducts = (state) => state.products.products;
 export const selectProductStatus = (state) => state.products.status;
 export const selectProductError = (state) => state.products.error;
