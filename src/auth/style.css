@@ -1,0 +1,287 @@
+.login {
+  width: 616px;
+  height: auto;
+  background-color: #f3f3f3;
+  padding: 64px 32px 64px 32px;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid #d5d5d5;
+  opacity: 0px;
+  margin: 0 auto;
+}
+h2 {
+  font-family: "Short Stack";
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 39.41px;
+  text-align: center;
+  color: #2d2d2d;
+}
+.loginForm {
+  width: 552px;
+  height: 81px;
+  gap: 8px;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+}
+.Label {
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  color: #333333;
+  padding-bottom: 19.1px;
+}
+.loginForm input[type="email"],
+.loginForm input[type="password"] {
+  width: 552px;
+  height: auto;
+  padding: 16px;
+  gap: 10px;
+  box-sizing: border-box;
+  background-color: #eaeaea;
+  border-radius: 4px;
+  border: none;
+  margin-top: 10px;
+}
+.loginButton {
+  width: 552px;
+  height: 40px;
+  padding: 16px;
+  background-color: #2d2d2d;
+  padding: 8px;
+  border-radius: 4px;
+  font-family: "Nunito Sans";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24.55px;
+  border: none;
+  color: #f3f3f3;
+  margin-top: 10px;
+}
+.signup {
+  font-family: "Nunito Sans";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24.55px;
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+.link {
+  text-decoration: underline;
+  margin-left: 10px;
+}
+
+.passwordInput {
+  position: relative;
+}
+
+.passwordInput img {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px;
+  height: auto;
+}
+
+/* Styling for Registration page */
+
+.registration {
+  width: 616px;
+  height: auto;
+  padding-left: 32px;
+  padding-top: 32px;
+  border-radius: 8px;
+  opacity: 0px;
+  border: 1px solid #d5d5d5;
+  opacity: 0px;
+  margin: 0 auto;
+  background-color: #f3f3f3;
+}
+
+.passwordWrapper {
+  display: flex;
+  position: relative;
+  gap: 42px;
+  margin-bottom: 32px;
+}
+.headerWrap {
+  align-items: center;
+  width: 552px;
+  height: auto;
+  gap: 48px;
+  opacity: 0px;
+}
+
+.headerWrap p {
+  font-family: "Nunito Sans";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24.55px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.navButton {
+  width: 552px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  height: auto;
+  border-radius: 8px 8px 0px 0px;
+  opacity: 0px;
+}
+
+.navButton button {
+  width: 276px;
+  height: 64px;
+  padding: 8px 8px;
+  gap: 32px;
+  border-radius: 8px 8px 0px 0px;
+  opacity: 0px;
+  background-color: #f1f1f1;
+  border: none;
+}
+
+.navButton button.active {
+  background-color: #2b6e77;
+  color: white;
+  align-items: center;
+  width: 276px;
+  height: 64px;
+  padding-right: 32px;
+  gap: 8px;
+  border-radius: 8px 8px 0px 0px;
+  opacity: 0px;
+}
+.signupForm input[type="email"],
+.signupForm input[type="number"] {
+  width: 552px;
+  height: auto;
+  padding: 10px;
+  gap: 10px;
+  border-radius: 4px;
+  opacity: 0px;
+  border: none;
+  background-color: #eaeaea;
+  border: none;
+  font-family: Nunito Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21.82px;
+  margin-top: 10px;
+  color: #666666;
+  margin-bottom: 32px;
+}
+.Password input[type="password"] {
+  width: 265px;
+  height: 40px;
+
+  line-height: 25px;
+  padding: 0px;
+  gap: 10px;
+  border-radius: 4px;
+  border: none;
+  opacity: 0px;
+  background-color: #eaeaea;
+  margin-top: 10px;
+  color: #666666;
+}
+.Password input[type="confirmPassword"] {
+  width: 265px;
+  height: 40px;
+  padding: 0px;
+  gap: 10px;
+  border-radius: 4px;
+  border: none;
+  opacity: 0px;
+  background-color: #eaeaea;
+  margin-top: 10px;
+  color: #666666;
+}
+.Label2 {
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.1px;
+  text-align: left;
+  color: #333333;
+  padding-bottom: 19.1px;
+}
+.validation {
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.1px;
+  text-align: left;
+}
+.loginAccount {
+  font-family: "Nunito Sans";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24.55px;
+  text-align: center;
+  color: #575757;
+  padding: 32px 0px;
+}
+.passwordInput2 {
+  position: relative;
+}
+.passwordInput2 img {
+  position: absolute;
+  top: 60%;
+  right: 1rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 16px;
+  height: 9px;
+  align-items: center;
+}
+.signUpButton {
+  width: 570px;
+  height: auto;
+  padding: 16px;
+  background-color: #2d2d2d;
+  padding: 8px;
+  border-radius: 4px;
+  font-family: "Nunito Sans";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24.55px;
+  border: none;
+  color: #f3f3f3;
+}
+.passwrd {
+  width: 265px;
+  height: 40px;
+
+  line-height: 25px;
+  padding: 0px;
+  gap: 10px;
+  border-radius: 4px;
+  border: none;
+  opacity: 0px;
+  background-color: #eaeaea;
+  margin-top: 10px;
+  color: #666666;
+}
+
+@media (max-width: 380px) {
+  .passwordWrapper {
+    flex-direction: column;
+  }
+  .Password input[type="password"],
+  .Password input[type="confirmPassword"] {
+    width: 94%;
+    height: 54px;
+  }
+  .passwordInput2 img {
+    right: 3rem;
+  }
+}
